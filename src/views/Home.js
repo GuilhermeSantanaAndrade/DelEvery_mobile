@@ -1,10 +1,8 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import logo from '../assets/logo.png';
-
-export default Initial = () => {
+export default Home = () => {
   const navigation = useNavigation();
 
   function navigateTo(destiny) {
@@ -14,22 +12,17 @@ export default Initial = () => {
   return (
     <>
       <View style={styles.container}>
-        <Image source={logo} style={styles.logo}></Image>
-        <View style={styles.buttonsContainer}>
+        <View style={styles.header}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              navigateTo('Home');
+              navigateTo('Initial');
             }}>
-            <Text style={styles.buttonText}>Já sou cadastrado</Text>
+            <Text style={styles.buttonText}>{'<<'} Voltar</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              navigateTo('Home');
-            }}>
-            <Text style={styles.buttonText}>Cadastrar-me</Text>
-          </TouchableOpacity>
+        </View>
+        <View style={styles.body}>
+          <Text style={styles.buttonText}></Text>
         </View>
       </View>
     </>
@@ -39,35 +32,36 @@ export default Initial = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
     backgroundColor: '#EDF7EF',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logo: {
-    maxWidth: '65%',
-    maxHeight: 250,
-  },
-  title: {
-    color: '#444',
-    fontSize: 24,
-  },
-  buttonsContainer: {
-    height: 135,
+  header: {
+    flex: 1,
     width: '100%',
-    paddingBottom: 10,
+    maxHeight: 60,
+    backgroundColor: 'rgb(248, 86, 73)',
     justifyContent: 'center',
-    alignItems: 'center',
+    paddingBottom: 10,
+  },
+  body: {
+    flex: 1,
+    height: '100%',
+    width: '100%',
+    backgroundColor: '#EDF7EF',
   },
   button: {
     flex: 1,
-    width: '65%',
-    backgroundColor: 'rgb(248, 86, 73)',
+    width: 120,
+    backgroundColor: '#FFF',
     marginTop: 10,
+    marginLeft: 5,
     height: 50,
     justifyContent: 'center',
   },
   buttonText: {
-    color: '#FFF',
+    color: '#444',
     fontSize: 16,
     textAlign: 'center',
     paddingTop: 10,
